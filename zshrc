@@ -26,14 +26,14 @@ fi
 
 # Load ASDF
 # Needs to be done before compinit in config.zsh
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+# . $HOME/.asdf/asdf.sh
+# fpath=(${ASDF_DIR}/completions $fpath)
 
 source ~/.zsh/config.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkey.zsh
-source ~/.zsh/prompt.zsh
+# source ~/.zsh/prompt.zsh
 source ~/.zsh/fzf.zsh
 
 # Load rupa Z: quickly jump to recent directory with the z command
@@ -57,10 +57,13 @@ source ~/.rupa-z/z.sh
 # <<< conda initialize <<<
 
 # Load direnv through asdf
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 # Local (to this machine) configuration
 # SHOULD BE LAST
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+echo "Hi bro!"
+source ~/.zsh/oh_my_zsh_config.zsh
