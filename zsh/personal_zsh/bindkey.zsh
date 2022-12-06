@@ -1,5 +1,5 @@
 # empty
-
+# https://thevaluable.dev/zsh-line-editor-configuration-mouseless/
 bindkey -s '^o' "echo 'hola'^M"
 
 function _reload1(){
@@ -19,19 +19,19 @@ bindkey -s '^Xd' "_reload1^M"
 
 
 # https://thevaluable.dev/zsh-line-editor-configuration-mouseless/
-function _say_hi1 {
+function say_hi1 {
     echo "hi!"
-    
+
     zle -U "$CUTBUFFER"
     # $CUTBUFFER"
 }
 
-zle -N _say_hi1
-bindkey '^Xh' _say_hi1
+zle -N say_hi1
+bindkey '^Xh' say_hi1
 
-function _say_hi2 {
+function say_hi2 {
     echo "hi2!"
 }
 
-bindkey -s '^Xj' "_say_hi2^M"
-bindkey -s '^i' "_say_hi2^M"
+bindkey -s '^Xj' "say_hi2^M"
+# bindkey -s '^I' "say_hi2^M"
