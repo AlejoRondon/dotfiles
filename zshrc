@@ -29,12 +29,19 @@ fi
 # . $HOME/.asdf/asdf.sh
 # fpath=(${ASDF_DIR}/completions $fpath)
 
-source ~/.zsh/config.zsh
-source ~/.zsh/completion.zsh
-source ~/.zsh/aliases.zsh
-source ~/.zsh/bindkey.zsh
-# source ~/.zsh/prompt.zsh
-source ~/.zsh/fzf.zsh
+source ~/.zsh/general_zsh/config.zsh
+source ~/.zsh/general_zsh/completion.zsh
+source ~/.zsh/general_zsh/aliases.zsh
+source ~/.zsh/general_zsh/bindkey.zsh
+source ~/.zsh/general_zsh/prompt.zsh
+source ~/.zsh/general_zsh/fzf.zsh
+
+source ~/.zsh/personal_zsh/aliases.zsh
+source ~/.zsh/personal_zsh/bindkey.zsh
+
+source ~/.zsh/globant_zsh/aliases.zsh
+source ~/.zsh/globant_zsh/bindkey.zsh
+
 
 # Load rupa Z: quickly jump to recent directory with the z command
 # Example: z foo
@@ -66,4 +73,4 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 echo "Hi bro!"
-source ~/.zsh/oh_my_zsh_config.zsh
+source ~/.zsh/general_zsh/oh_my_zsh_config.zsh

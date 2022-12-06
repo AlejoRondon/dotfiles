@@ -41,6 +41,10 @@ function create-links {
     # create-link "$PWD/bin"                    "$HOME/bin"
     # create-link "$PWD/vim"                    "$HOME/.vim"
     create-link "$PWD/zsh"                      "$HOME/.zsh"
+    # create-link "$PWD/zsh/general_zsh"                      "$HOME/.zsh/general_zsh"
+    # create-link "$PWD/zsh/personal_zsh"                     "$HOME/.zsh/personal_zsh"
+    # create-link "$PWD/zsh/globant_zsh"                      "$HOME/.zsh/globant_zsh"
+
     # files
     # create-link "$PWD/albertignore"           "$HOME/.albertignore"
     # create-link "$PWD/bashrc"                 "$HOME/.bashrc"

@@ -113,4 +113,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh
+[[ ! -f ~/.zsh/general_zsh/p10k.zsh ]] || source ~/.zsh/general_zsh/p10k.zsh
