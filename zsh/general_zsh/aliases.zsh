@@ -53,17 +53,39 @@ alias -g .......='../../../../../..'
 alias      g='git'
 compdef    g=git
 alias     gs='git status'
-alias     gl='git log --graph --abbrev-commit --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
-alias     gp='git pull; git log -n 1 | grep -q -c "\-\-wip\-\-" && echo "\033[0;33mWARNING: Last commit is a WIP\!\033[0m"'
+alias   glog='git log --graph --abbrev-commit --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias    gpl='git pull; git log -n 1 | grep -q -c "\-\-wip\-\-" && echo "\033[0;33mWARNING: Last commit is a WIP\!\033[0m"'
 alias    gaa='git add -A'
 alias    gcm='git rev-parse --abbrev-ref origin/HEAD | cut -c8- | xargs -n 1 git checkout' # checkout master/main/develop automatically
 alias     gc='git checkout -'
-alias    gpf='git push --force-with-lease'
+alias  gpsfl='git push --force-with-lease'
+alias   gpsf='git push -u --force'
 alias   gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 alias  gwipp='gwip && git push --force-with-lease'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias   gbrd='git branch -D'
+# https://www.shellhacks.com/git-create-tag-push-tag-to-remote/
+# https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/
+alias   gtag="git tag"
+alias   gtag_d="git tag -d"                 #delete tag
+alias   gtagsl="git describe --tags"        #show all tags
+alias   gptags="git push origin --tags"     #push all local tags
+alias   gulc="git reset --soft HEAD~1"      #undo last commit
 # shellcheck disable=SC2142
 alias delete-merged-branches="git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '\$2 == \"[gone]\" {print \$1}' | xargs -r git branch -D"
+
+function gco_main() {                       #checkout to the main branch
+  NAME=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+  echo "checking out to main branch: $NAME"
+  eval "gco $NAME"
+}
+
+function gpsb() {                           #git push current branch
+  NAME=$(git rev-parse --abbrev-ref HEAD)
+  echo "pushing branch $NAME"
+  git push --set-upstream origin $NAME
+}
+
 
 # Maven
 alias m='mvn-in-colors'

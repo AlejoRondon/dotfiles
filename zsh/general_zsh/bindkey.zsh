@@ -66,3 +66,9 @@ setxkbmap -option caps:backspace
 
 # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
 stty -ixon -ixoff
+
+# Git bindkeys
+
+# zle -N gco_main
+# bindkey  '^Gm' gco_main
+bindkey -s '^Gm' "gco_main^M"
